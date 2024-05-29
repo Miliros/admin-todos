@@ -1,11 +1,24 @@
-import { WidgetItem } from "@/componentes";
+import prisma from "@/lib/prisma";
+import { NewTodo, TodosGrid } from "@/todos";
 
-export default function RestTodosPages() {
+export const metadata = {
+ title: 'Listado de Todos',
+ description: 'SEO Title',
+};
+
+
+export default async function RestTodosPage() {
+
+  const todos = await prisma.todo.findMany({ orderBy: { description: 'asc' } });
+
+  
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            
-            <WidgetItem/>
-
-          </div>  
+    <div>
+      <div className="w-full px-3 mx-5 mb-5">
+        <NewTodo />
+      </div>
+      
+      <TodosGrid todos={ todos } />
+    </div>
   );
 }
