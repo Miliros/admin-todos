@@ -23,7 +23,7 @@ export const products: Product[] = [
   },
   {
     id: "UUID-ABC-3",
-    name: "Beach Bag & Glasses Holder",
+    name: "Beach Bag",
     price: 36,
     description: "Luxury Bag",
     image: "/images/products/7715d19fdf46644f7f0ee9bf67bd1b03.jpg",

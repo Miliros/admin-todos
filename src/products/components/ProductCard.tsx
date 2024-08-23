@@ -1,5 +1,9 @@
 "use client";
-import { addProductToCart } from "@/shoppin-cart/actions/actions";
+import {
+  addProductToCart,
+  removeProductFromCart,
+} from "@/shoppin-cart/actions/actions";
+import { useRouter } from "next/navigation";
 import { MdDeleteOutline } from "react-icons/md";
 
 interface Props {
@@ -11,8 +15,16 @@ interface Props {
 }
 
 export function ProductCard({ id, name, description, price, image }: Props) {
+  const router = useRouter();
+
   const onAddTocart = () => {
     addProductToCart(id);
+    router.refresh();
+  };
+
+  const onDeleteProductCard = () => {
+    removeProductFromCart(id);
+    router.refresh();
   };
 
   return (
@@ -42,6 +54,7 @@ export function ProductCard({ id, name, description, price, image }: Props) {
             <MdDeleteOutline
               size={19}
               className="transition-all hover:scale-105 focus:scale-107"
+              onClick={onDeleteProductCard}
             />
           </div>
         </div>

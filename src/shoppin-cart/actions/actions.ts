@@ -27,3 +27,23 @@ export const addProductToCart = (id: string) => {
   }
   setCookie("cart", JSON.stringify(cookieCart)); //seteo con actualizaciones
 };
+
+export const removeProductFromCart = (id: string) => {
+  const cookieCart = getCookieCart();
+  delete cookieCart[id];
+  setCookie("cart", JSON.stringify(cookieCart));
+};
+
+export const removeSingleItemFromCart = (id: string) => {
+  const cookieCart = getCookieCart();
+
+  if (cookieCart[id]) {
+    cookieCart[id] -= 1; // Reduce la cantidad en 1
+
+    if (cookieCart[id] === 0) {
+      delete cookieCart[id]; // Elimina el producto si la cantidad es 0
+    }
+
+    setCookie("cart", JSON.stringify(cookieCart)); // Actualiza la cookie
+  }
+};
