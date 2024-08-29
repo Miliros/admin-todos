@@ -1,5 +1,6 @@
-export { Sidebar } from "./Sidebar";
-export { SidebarItem } from "./SidebarItem";
+export { Sidebar } from "./SideBar/Sidebar";
+export { SidebarItem } from "./SideBar/SidebarItem";
+export { LogOutButton } from "./SideBar/LogoutButton";
 export { TopMenu } from "./TopMenu";
-export { WidgetItem } from "./WidgetItem";
 export { TabBar } from "./TabBar";
+export { Profile } from "./Profile";
