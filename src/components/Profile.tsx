@@ -16,7 +16,7 @@ export const Profile = () => {
   const name = session?.user?.name || "Usuario Anónimo";
   const image = session?.user?.image || "/default-avatar.png";
   const email = session?.user?.email || "Email no disponible";
-
+  const roles = session?.user?.roles || "client";
   //   if (!session) {
   //     redirect("/api/auth/signin");
   //     return null;
@@ -75,9 +75,7 @@ export const Profile = () => {
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-4">
               <p className="font-light leading-relaxed text-slate-600 mb-4">
-                An artist of considerable range, Mike is the name taken by
-                Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                and records all of his own music, giving it a warm.
+                {roles}
               </p>
             </div>
           </div>
